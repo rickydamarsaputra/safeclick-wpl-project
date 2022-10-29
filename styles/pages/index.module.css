@@ -1,0 +1,175 @@
+.hero_section {
+	background-image: url('../../public/assets/landing-hero-section-bg.jpg');
+}
+.hero_section_title {
+	font-size: 3rem;
+}
+.hero_section_desc {
+	font-size: 1.5rem;
+}
+
+.about_section {
+	padding: 11.25rem 0;
+}
+.about_section_title {
+	font-size: 2rem;
+	margin-bottom: 10rem;
+}
+
+.service_section {
+	padding-bottom: 11.25rem;
+}
+.service_section_title {
+	font-size: 2rem;
+	margin-bottom: 10rem;
+}
+.service_section_card {
+	border-radius: 1.8rem;
+}
+.service_section_card_title {
+	font-size: 1.5rem;
+	font-weight: 900;
+}
+.service_section_btn:hover {
+	color: #fff !important;
+}
+
+.achievement_section {
+	padding-bottom: 11.25rem;
+}
+.achievement_section_title {
+	font-size: 2rem;
+	margin-bottom: 10rem;
+}
+
+.testimonial_section {
+	padding-bottom: 11.25rem;
+}
+.testimonial_section_title {
+	font-size: 2rem;
+	margin-bottom: 10rem;
+}
+.testimonial_section_card {
+	border-radius: 1.8rem;
+	padding-top: 8.5rem;
+	padding-bottom: 5rem;
+}
+.testimonial_section_card_quote {
+	font-size: 2.5rem;
+	font-weight: 500;
+}
+.testimonial_section_card_name {
+	font-size: 1.5rem;
+	color: #fff;
+}
+.testimonial_section_card_profile_top {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	right: 50%;
+	transform: translate(-50%, -50%);
+}
+.testimonial_section_small {
+	margin-top: 5rem;
+}
+.testimonial_section_small_card {
+	border-radius: 1.8rem;
+	padding-top: 3rem;
+	padding-bottom: 5rem;
+}
+.testimonial_section_card_small_quote {
+	font-size: 1.2rem;
+	font-weight: 500;
+	margin-top: 3rem;
+}
+
+.footer {
+	padding-top: 5rem;
+	padding-bottom: 9rem;
+}
+.footer_title {
+	font-size: 2rem;
+	font-weight: 700;
+}
+.footer_list_menu {
+	list-style: none;
+	padding-left: 0;
+	margin-top: 1rem;
+}
+.footer_list_menu li {
+	margin-bottom: 0.5rem;
+}
+.footer_list_menu li a {
+	font-size: 1.2rem;
+	color: #575757;
+	text-decoration: none;
+}
+
+@media (max-width: 575.98px) {
+	.header_logo {
+		width: 9.5rem;
+		height: 2.5rem;
+		object-fit: cover;
+	}
+
+	.hero_section_title {
+		font-size: 2rem;
+	}
+	.hero_section_desc {
+		font-size: 1rem;
+	}
+	.hero_section_img {
+		width: 100%;
+		height: fit-content;
+	}
+
+	.about_section {
+		padding: 5rem 0;
+	}
+	.about_section_title {
+		margin-bottom: 2rem;
+	}
+
+	.service_section {
+		padding-bottom: 5rem;
+	}
+	.service_section_title {
+		margin-bottom: 2rem;
+	}
+	.service_section_card_img {
+		width: 100%;
+	}
+	.service_section_card_title {
+		font-weight: 700;
+	}
+
+	.achievement_section {
+		padding-bottom: 5rem;
+	}
+	.achievement_section_title {
+		margin-bottom: 2rem;
+	}
+	.achievement_section_achiev_title {
+		font-size: 2rem;
+	}
+
+	.testimonial_section_title {
+		margin-bottom: 5rem;
+	}
+	.testimonial_section_card_quote {
+		font-size: 1.5rem;
+	}
+
+	.footer {
+		padding: 5rem 0;
+	}
+	.footer_title {
+		font-size: 1.5rem;
+	}
+	.footer_list_menu li a {
+		font-size: 1rem;
+	}
+	.footer_list_menu li a svg {
+		width: 1.8rem;
+	}
+}
