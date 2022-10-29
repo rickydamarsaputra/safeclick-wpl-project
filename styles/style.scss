@@ -1,1 +1,19 @@
+$wpl-color-schema: (
+	'neutral-50': #f7f7ff,
+	'neutral-100': #eff3ff,
+	'neutral-300': #c6cfe2,
+	'neutral-400': #8c9ab5,
+	'primary-200': #7faeda,
+	'primary-100': #9bcbf9,
+	'primary-500': #357fbe,
+	'primary-700': #1d58a6,
+);
+
+// import bootstrap sass
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+$theme-colors: map-merge($wpl-color-schema, $theme-colors);
+$table-variants: map-merge($wpl-color-schema, $table-variants);
+
 @import '../node_modules/bootstrap/scss/bootstrap';
