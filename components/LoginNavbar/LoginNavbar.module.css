@@ -47,6 +47,15 @@
   margin-right: 24px;
 }
 
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  color: inherit;
+}
+
 /* @media screen and (max-width: 768px) {
   .form_button_container {
     flex-direction: column;

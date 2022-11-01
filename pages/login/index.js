@@ -66,7 +66,7 @@ function Login() {
                           >
                             Don&apos;t have an account?{" "}
                             <Link
-                              href="#"
+                              href="/signup"
                               className="text-primary-700 fw-semibold text-decoration-none"
                             >
                               Sign Up

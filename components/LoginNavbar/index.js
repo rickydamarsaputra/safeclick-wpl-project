@@ -61,12 +61,16 @@ function LoginNavbar() {
               <button
                 className={`btn btn-primary-700 rounded-pill ${styles.button}`}
               >
-                Login
+                <Link href="/login" className={`${styles.link}`}>
+                  Login
+                </Link>
               </button>
               <button
                 className={`btn btn-outline-primary-700 rounded-pill ${styles.button}`}
               >
-                Sign Up
+                <Link href="/signup" className={`${styles.link}`}>
+                  Sign Up
+                </Link>
               </button>
             </div>
           </div>
