@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.heading {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 48px;
+  line-height: 48px;
+  text-align: center;
+  color: #4b4b4b;
+}
+
+.form_container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 24px;
+  font-family: "Inter", sans-serif;
+}
+
+.right_element {
+  background: linear-gradient(
+      0deg,
+      rgba(29, 88, 166, 0.05),
+      rgba(57, 61, 66, 0.05)
+    ),
+    #ffffff;
+}
+
+.login {
+  min-height: 100vh;
+}
+
+.bg_image {
+  background-image: url("/side_image.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.button {
+  border-radius: 200px;
+  height: 50px;
+  font-size: 16px;
+  margin-top: 24px;
+}
+
+.link {
+  margin-top: 24px;
+}
+
+.signup {
+  margin-top: 48px;
+}
+
+.show_button:active {
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-left: none;
+}
+
+.show_button {
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-left: none;
+}
+
+.show_button:hover {
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-left: none;
+}
