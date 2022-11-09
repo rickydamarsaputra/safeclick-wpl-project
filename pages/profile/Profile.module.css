@@ -1,0 +1,130 @@
+.header {
+  margin-top: 68px;
+}
+
+.card {
+  background: #eff3ffb2;
+  box-shadow: -15px 27px 50px -33px #00000014;
+  margin-bottom: 1rem;
+  border: none;
+}
+
+.table__container {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin: 0 100px;
+  margin-top: 65px;
+}
+
+.table__header {
+  background: #1d58a6;
+  color: #ffffff;
+  height: 85px;
+  box-shadow: -15px 27px 50px -33px #00000014;
+  margin-bottom: 23px;
+  border-radius: 10px;
+  display: grid;
+}
+
+.table__content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  margin-bottom: 1rem;
+  min-width: 1080px;
+}
+
+.table__content > th td {
+  border: none;
+}
+
+.table__header > .table__content {
+  margin-bottom: 0;
+}
+
+.table__header > .table__content > th {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+}
+
+.table__card {
+  background: rgba(239, 243, 255, 0.7);
+  box-shadow: -15px 27px 50px -33px rgba(0, 0, 0, 0.08);
+  height: 200px;
+}
+
+.table__card > td > p {
+  margin: 0;
+}
+
+.image {
+  border: 5px solid #ffffff;
+  filter: drop-shadow(0px 4px 24px rgba(155, 203, 249, 0.54));
+  border-radius: 20px;
+}
+
+.paginate__container {
+  display: flex;
+  gap: 10px;
+  margin: 138px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginate__arrow {
+  width: 32px;
+  height: 32px;
+  background-color: black;
+  border: none;
+  background-color: #1d58a6;
+}
+
+.paginate__number {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  color: #4b5563;
+}
+
+.footer {
+  padding-top: 5rem;
+  padding-bottom: 9rem;
+}
+
+.footer_title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.footer_list_menu {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.footer_list_menu li {
+  margin-bottom: 0.5rem;
+}
+
+.footer_list_menu li a {
+  font-size: 1.2rem;
+  color: #575757;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .table__container {
+    margin: 0 40px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .table__container {
+    margin: 0 20px;
+  }
+}

@@ -1,0 +1,26 @@
+.button {
+  border-radius: 200px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  padding: 11px 50px;
+}
+
+.button__pending {
+  border: 1px solid #1d58a6;
+  background-color: transparent;
+  color: #1d58a6;
+}
+
+.button__unsuccessful {
+  border: 1px solid #db4f49;
+  background-color: transparent;
+  color: #db4f49;
+}
+
+.button__success {
+  border: none;
+  background-color: #1d58a6;
+  color: white;
+}

@@ -1,0 +1,48 @@
+{
+  "page": 1,
+  "total_pages": 10,
+  "data": [
+    {
+      "id": 1,
+      "image": "https://placekitten.com/130/140",
+      "purchase_status": "Completed",
+      "availability": "20 Days Left",
+      "borrowing_status": "Pending"
+    },
+    {
+      "id": 2,
+      "image": "https://placekitten.com/130/140",
+      "purchase_status": "Completed",
+      "availability": "20 Days Left",
+      "borrowing_status": "Success"
+    },
+    {
+      "id": 3,
+      "image": "https://placekitten.com/130/140",
+      "purchase_status": "Completed",
+      "availability": "20 Days Left",
+      "borrowing_status": "Pending"
+    },
+    {
+      "id": 4,
+      "image": "https://placekitten.com/130/140",
+      "purchase_status": "Failed",
+      "availability": "20 Days Left",
+      "borrowing_status": "Unsuccessful"
+    },
+    {
+      "id": 5,
+      "image": "https://placekitten.com/130/140",
+      "purchase_status": "Completed",
+      "availability": "20 Days Left",
+      "borrowing_status": "Pending"
+    },
+    {
+      "id": 6,
+      "image": "https://placekitten.com/130/140",
+      "purchase_status": "Completed",
+      "availability": "20 Days Left",
+      "borrowing_status": "Success"
+    }
+  ]
+}
