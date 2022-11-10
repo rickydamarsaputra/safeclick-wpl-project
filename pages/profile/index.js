@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import Head from "next/head";
 
 import LoggedInNavbar from "../../components/Navbar/LoggedInNavbar";
 import Button from "./Button";
@@ -9,6 +10,9 @@ import data from "./data.json";
 function Profile() {
   return (
     <>
+      <Head>
+        <title>Profile | Warga Peduli Lingkungan</title>
+      </Head>
       <header className={styles.header}>
         <LoggedInNavbar />
       </header>

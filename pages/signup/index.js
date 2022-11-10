@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +9,67 @@ import Label from "../../components/Forms/Label";
 import styles from "./Signup.module.css";
 
 function Signup() {
+  const intialValues = {
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+
+  const [formValues, setFormValues] = useState(intialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [show, setShow] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmitting(true);
+  };
+
+  const validate = (values) => {
+    let errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+    if (!values.name) {
+      errors.name = "Name cannot be blank";
+    }
+
+    if (!values.email) {
+      errors.email = "Email cannot be blank";
+    } else if (!regex.test(values.email)) {
+      errors.email = "Invalid email format";
+    }
+
+    if (!values.password) {
+      errors.password = "Password cannot be blank";
+    } else if (values.password.length < 4) {
+      errors.password = "Password must be more than 4 characters";
+    }
+
+    if (!values.confirmPassword) {
+      errors.confirmPassword = "Confirm password cannot be blank";
+    } else if (values.confirmPassword !== values.password) {
+      errors.confirmPassword = "Confirm password doesn't match";
+    }
+
+    return errors;
+  };
+
+  useEffect(() => {
+    const submit = () => {
+      console.log(formValues);
+    };
+
+    if (Object.keys(formErrors).length === 0 && isSubmitting) {
+      submit();
+    }
+  }, [formErrors, isSubmitting, formValues]);
 
   return (
     <>
@@ -32,18 +92,48 @@ function Signup() {
                     <div className="col-md-9 col-lg-8 mx-auto">
                       <h3 className={`${styles.heading}`}>Sign Up</h3>
 
-                      <form className={`${styles.form_container}`}>
+                      <form
+                        className={`${styles.form_container}`}
+                        onSubmit={handleSubmit}
+                      >
                         <div>
                           <Label>Name</Label>
-                          <Input type="text" placeholder="e.g. John Doe" />
+                          <Input
+                            type="text"
+                            name="name"
+                            placeholder="e.g. John Doe"
+                            value={formValues.name}
+                            onChange={handleChange}
+                            className={formErrors.name && styles.invalid}
+                          />
+                          {formErrors.name && (
+                            <>
+                              <ErrorIcon />
+                              <small className={styles.error}>
+                                {formErrors.name}
+                              </small>
+                            </>
+                          )}
                         </div>
 
                         <div>
                           <Label>Email</Label>
                           <Input
                             type="email"
+                            name="email"
                             placeholder="e.g. johndoe@gmail.com"
+                            value={formValues.email}
+                            onChange={handleChange}
+                            className={formErrors.email && styles.invalid}
                           />
+                          {formErrors.email && (
+                            <>
+                              <ErrorIcon />
+                              <small className={styles.error}>
+                                {formErrors.email}
+                              </small>
+                            </>
+                          )}
                         </div>
 
                         <div>
@@ -51,16 +141,32 @@ function Signup() {
                           <div className="input-group">
                             <Input
                               type={show ? "text" : "password"}
+                              name="password"
                               placeholder="Input your password"
+                              value={formValues.password}
+                              onChange={handleChange}
+                              className={formErrors.password && styles.invalid}
                             />
                             <button
-                              class={`btn ${styles.show_button}`}
+                              class={`btn ${
+                                formErrors.confirmPassword
+                                  ? styles.show_button_error
+                                  : styles.show_button
+                              }`}
                               type="button"
                               onClick={() => setShow(!show)}
                             >
                               {show ? <EyeSlash /> : <EyeIcon />}
                             </button>
                           </div>
+                          {formErrors.password && (
+                            <>
+                              <ErrorIcon />
+                              <small className={styles.error}>
+                                {formErrors.password}
+                              </small>
+                            </>
+                          )}
                         </div>
 
                         <div>
@@ -68,22 +174,41 @@ function Signup() {
                           <div className="input-group">
                             <Input
                               type={show ? "text" : "password"}
+                              name="confirmPassword"
                               placeholder="Retype your password"
+                              value={formValues.confirmPassword}
+                              onChange={handleChange}
+                              className={
+                                formErrors.confirmPassword && styles.invalid
+                              }
                             />
                             <button
-                              class={`btn ${styles.show_button}`}
+                              class={`btn ${
+                                formErrors.confirmPassword
+                                  ? styles.show_button_error
+                                  : styles.show_button
+                              }`}
                               type="button"
                               onClick={() => setShow(!show)}
                             >
                               {show ? <EyeSlash /> : <EyeIcon />}
                             </button>
                           </div>
+                          {formErrors.confirmPassword && (
+                            <>
+                              <ErrorIcon />
+                              <small className={styles.error}>
+                                {formErrors.confirmPassword}
+                              </small>
+                            </>
+                          )}
                         </div>
 
                         <div className="d-grid">
                           <button
                             className={`btn btn-primary-700 fw-bold mb-2 ${styles.button}`}
                             type="submit"
+                            onSubmit={handleSubmit}
                           >
                             Sign Up
                           </button>
@@ -148,6 +273,23 @@ function EyeSlash() {
       <path
         d="M22.0828 11.3954C21.2578 9.65791 20.2759 8.24111 19.1369 7.14502L15.7587 10.5235C16.0434 11.2679 16.1066 12.0789 15.9404 12.8584C15.7742 13.6379 15.3859 14.3526 14.8223 14.9162C14.2588 15.4798 13.544 15.8681 12.7645 16.0343C11.985 16.2004 11.1741 16.1373 10.4297 15.8525L7.56421 18.718C8.89358 19.3331 10.3722 19.6407 12 19.6407C16.5047 19.6407 19.8656 17.2946 22.0828 12.6024C22.1719 12.4137 22.2182 12.2076 22.2182 11.9989C22.2182 11.7902 22.1719 11.5841 22.0828 11.3954Z"
         fill="#357FBE"
+      />
+    </svg>
+  );
+}
+
+function ErrorIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10 1.66675C5.40002 1.66675 1.66669 5.40008 1.66669 10.0001C1.66669 14.6001 5.40002 18.3334 10 18.3334C14.6 18.3334 18.3334 14.6001 18.3334 10.0001C18.3334 5.40008 14.6 1.66675 10 1.66675ZM10 14.1667C9.54169 14.1667 9.16669 13.7917 9.16669 13.3334V10.0001C9.16669 9.54175 9.54169 9.16675 10 9.16675C10.4584 9.16675 10.8334 9.54175 10.8334 10.0001V13.3334C10.8334 13.7917 10.4584 14.1667 10 14.1667ZM10.8334 7.50008H9.16669V5.83341H10.8334V7.50008Z"
+        fill="#DD1F25"
       />
     </svg>
   );

@@ -50,3 +50,22 @@
 .signup {
   margin-top: 48px;
 }
+
+.invalid:focus {
+  border-color: #dd1f25;
+  box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 50%);
+}
+
+.invalid {
+  border: 1px solid #dd1f25;
+}
+
+.error {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #dd1f25;
+  margin-left: 8px;
+}
