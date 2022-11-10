@@ -57,7 +57,7 @@ function LoginNavbar() {
               </form>
               <div className="d-flex flex-column flex-lg-row gap-3">
                 <a
-                  className={`btn btn-outline-primary-700 text-primary-700 rounded-pill fw-semibold px-3 py-2 ${styles.header_button}`}
+                  className={`btn btn-primary-700 rounded-pill fw-semibold px-3 py-2 ${styles.header_button}`}
                   href="#"
                 >
                   Sign In
