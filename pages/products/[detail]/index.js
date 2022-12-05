@@ -63,8 +63,8 @@ export default function productDetail() {
 				<div className="container mb-4">
 					<h1 className="h3 fw-bold">You would like</h1>
 					<div className="row">
-						{[1, 2, 3, 4, 5].map((num) => {
-							return <CardProduct />;
+						{[1, 2, 3, 4, 5].map((num, index) => {
+							return <CardProduct key={index} />;
 						})}
 					</div>
 				</div>
