@@ -34,8 +34,8 @@ export default function products() {
 					</button>
 				</div>
 				<div className="row mt-4">
-					{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
-						return <CardProduct />;
+					{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num, index) => {
+						return <CardProduct key={index} />;
 					})}
 				</div>
 			</main>
