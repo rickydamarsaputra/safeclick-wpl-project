@@ -1,8 +1,8 @@
-import Users from "../models/UserModel.js";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken"
-import { validationResult } from "express-validator"
-import nodemailer from "nodemailer"
+const Users = require("../models/UserModel.js")
+const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
+const { validationResult } = require("express-validator")
+const nodemailer = require("nodemailer")
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
   }
 })
 
-export const getUser = async (req, res) => {
+const getUser = async (req, res) => {
   try {
     const user = await Users.findOne({
       attributes: ['id', 'name', 'email']
@@ -28,7 +28,7 @@ export const getUser = async (req, res) => {
   }
 }
 
-export const register = async (req, res) => {
+const register = async (req, res) => {
   // Finds the validation errors in this request and wraps them in an object with handy functions
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -87,7 +87,7 @@ export const register = async (req, res) => {
   }
 }
 
-export const login = async (req, res) => {
+const login = async (req, res) => {
   try {
     const user = await Users.findOne({
       where: {
@@ -128,7 +128,7 @@ export const login = async (req, res) => {
   }
 }
 
-export const logout = async (req, res) => {
+const logout = async (req, res) => {
   const refreshToken = req.cookies.refreshToken;
   if (!refreshToken) return res.sendStatus(204);
   const user = await Users.findAll({
@@ -150,7 +150,7 @@ export const logout = async (req, res) => {
   })
 }
 
-export const resetPassword = async (req, res) => {
+const resetPassword = async (req, res) => {
   const { token } = req.params;
   if (!token) res.status(400).send({ status: 'fail', msg: 'Token is missing' });
 
@@ -184,7 +184,7 @@ export const resetPassword = async (req, res) => {
   }
 }
 
-export const forgotPassword = async (req, res) => {
+const forgotPassword = async (req, res) => {
   const { email } = req.body;
   if (!email) res.status(400).json({
     status: 'fail',
@@ -211,7 +211,7 @@ export const forgotPassword = async (req, res) => {
   }
 }
 
-export const emailVerification = (req, res) => {
+const emailVerification = (req, res) => {
   jwt.verify(req.params.token, process.env.EMAIL_SECRET, async (err, decoded) => {
     if (err) return res.sendStatus(403);
     try {
@@ -233,3 +233,12 @@ export const emailVerification = (req, res) => {
     }
   })
 }
+
+module.exports = {
+  login, 
+  register, 
+  getUser, 
+  logout, 
+  emailVerification, 
+  forgotPassword, 
+  resetPassword}
