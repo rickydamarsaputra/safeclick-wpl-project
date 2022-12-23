@@ -1,8 +1,8 @@
-import express from "express";
-import { getUser, register, login, logout, forgotPassword, resetPassword, emailVerification } from "../controllers/Users.js";
-import { verifyToken } from "../middleware/VerifyToken.js";
-import { refreshToken } from "../controllers/RefreshToken.js";
-import { body } from "express-validator";
+const express = require("express");
+const { getUser, register, login, logout, forgotPassword, resetPassword, emailVerification } = require("../controllers/Users.js");
+const { verifyToken } = require("../middleware/VerifyToken.js");
+const { refreshToken } = require("../controllers/RefreshToken.js");
+const { body } = require("express-validator");
 
 const router = express.Router();
 
@@ -19,4 +19,4 @@ router.delete('/logout', logout);
 router.put('/reset-password/:token', resetPassword);
 router.post('/forgot-password', forgotPassword);
 
-export default router;
+module.exports= router;

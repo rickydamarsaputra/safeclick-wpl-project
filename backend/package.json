@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "migrate" : "npx sequelize-cli db:migrate",
+    "migrate:undo" : "npx sequelize-cli db:migrate:undo",
+    "migrate:undo:all" : "npx sequelize-cli db:migrate:undo:all",
+    "db:seed": "npx sequelize-cli db:seed:all"
   },
   "author": "Mahara Ihsan",
   "license": "ISC",
@@ -20,5 +26,9 @@
     "mysql2": "^2.3.3",
     "nodemailer": "^6.8.0",
     "sequelize": "^6.28.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "sequelize-cli": "^6.5.2"
   }
 }
